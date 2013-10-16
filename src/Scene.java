@@ -25,13 +25,14 @@ public class Scene {
 	public Color intersect(Ray r){
 		Color color = defaultColor;
 		double minT = Double.POSITIVE_INFINITY;
-		for(Primitive p:objects){
-			double[] solutions = p.solve(r);
+		for(Primitive obj:objects){
+			double[] solutions = obj.solve(r);
 			if(solutions!=null){
 				for(int i=0;i<solutions.length;i++){
 					if(solutions[i]<minT && solutions[i]>0){
 						Vec3 intersectionPoint = r.e.add(r.d.scalarMultiply(solutions[i]));
-						color = new Color(120,60,60);
+						color = (Color) obj.material.aC.scalarMultiply(obj.material.aI);
+						
 					}
 				}
 			}

@@ -1,5 +1,5 @@
 
-public class Plane implements Primitive {
+public class Plane extends Primitive {
 
 	private Vec3 p;
 	private Vec3 n;

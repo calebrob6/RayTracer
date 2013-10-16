@@ -1,6 +1,6 @@
 public class Vec3 {
 
-	private double[] vec = new double[3];
+	protected double[] vec = new double[3];
 
 	public Vec3() {
 		vec[0] = 0;
@@ -55,6 +55,11 @@ public class Vec3 {
 		return new Vec3(this.vec[1]*b.vec[2]-this.vec[2]*b.vec[1],
 				this.vec[2]*b.vec[0]-this.vec[0]*b.vec[2],
 				this.vec[0]*b.vec[1]-this.vec[1]*b.vec[0]);
+	}
+	
+	public Color getColor(){
+		//TODO fix this
+		return null;
 	}
 	
 	public static void main(String[] args) {

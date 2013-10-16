@@ -1,32 +1,26 @@
 import java.util.Random;
 
-public class Color {
+public class Color extends Vec3 {
 
 	private int a, r, g, b;
 
 	public Color() {
+		super(0,0,0);
 		this.a = 255;
-		this.r = 0;
-		this.g = 0;
-		this.b = 0;
 	}
 	
 	public Color(int r, int g, int b) {
+		super(r,g,b);
 		this.a = 255;
-		this.r = r;
-		this.g = g;
-		this.b = b;
 	}
 	
 	public Color(int r, int g, int b, int a) {
+		super(r,g,b);
 		this.a = a;
-		this.r = r;
-		this.g = g;
-		this.b = b;
 	}
 
 	public int getColorInt() {
-		return (a << 24) | (r << 16) | (g << 8) | b;
+		return (a << 24) | ((int) vec[0] << 16) | ((int) vec[1] << 8) | (int) vec[2];
 	}
 	
 	public static Color getRandomColor(){

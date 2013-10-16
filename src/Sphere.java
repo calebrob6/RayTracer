@@ -1,5 +1,5 @@
 
-public class Sphere implements Primitive {
+public class Sphere extends Primitive {
 	
 	private Vec3 c;
 	private int r;

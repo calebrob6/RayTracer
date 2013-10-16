@@ -1,7 +1,9 @@
 
-public interface Primitive {
+public abstract class Primitive {
 
-	public double[] solve(Ray r);
-	public Vec3 getNormal(Vec3 p);
+	public Material material = new Material();
+	
+	public abstract double[] solve(Ray r);
+	public abstract Vec3 getNormal(Vec3 p);
 	
 }
