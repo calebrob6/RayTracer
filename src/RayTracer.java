@@ -8,8 +8,8 @@ import javax.imageio.ImageIO;
 
 public class RayTracer {
 	
-	private static int WIDTH = 255;
-	private static int HEIGHT = 255;
+	private static int WIDTH;
+	private static int HEIGHT;
 
 	private BufferedImage image;
 	private int[] pixels;
