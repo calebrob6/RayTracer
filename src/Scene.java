@@ -7,7 +7,7 @@ public class Scene {
 	
 	public Color intersect(Ray r){
 		
-		return new Color();
+		return Color.getRandomColor();
 	}
 
 }

@@ -11,13 +11,20 @@ public class RayTracer {
 	private static int WIDTH = 255;
 	private static int HEIGHT = 255;
 
-	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_ARGB);
-	private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
+	private BufferedImage image;
+	private int[] pixels;
 
-	public RayTracer() {
+	public RayTracer(int width, int height) {
 
 		long start = System.currentTimeMillis();
+
+		WIDTH = width;
+		HEIGHT = height;
 		
+		image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_ARGB);
+		pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
+		
+		/*
 		Random rand = new Random();
 		
 		for(int i=0;i<HEIGHT;i++){
@@ -26,20 +33,25 @@ public class RayTracer {
 				pixels[j+i*WIDTH] = c.getColorInt(); 
 			}
 		}
+		*/
+			
+		Scene scene = new Scene();
+		Camera cam = new Camera();
+		
+		
+		
+		for(int y=0;y<HEIGHT;y++){
+			for(int x=0;x<WIDTH;x++){
+				Ray r = cam.getRay(x,y);
+			    setPixelColor(x,y,scene.intersect(r));
+			}
+		}
+		
 		
 		try {
 			ImageIO.write(image, "png", new File("test.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
-		
-		
-		Scene scene = new Scene();
-		
-		for(int y=0;y<HEIGHT;y++){
-			for(int x=0;x<WIDTH;x++){
-				
-			}
 		}
 		
 		

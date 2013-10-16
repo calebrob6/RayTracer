@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Color {
 
 	private int a, r, g, b;
@@ -25,6 +27,11 @@ public class Color {
 
 	public int getColorInt() {
 		return (a << 24) | (r << 16) | (g << 8) | b;
+	}
+	
+	public static Color getRandomColor(){
+		Random rand = new Random();
+		return new Color(rand.nextInt(255),rand.nextInt(255),rand.nextInt(255));
 	}
 
 }
