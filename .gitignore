@@ -5,3 +5,7 @@
 *.war
 *.ear
 /bin
+
+Thumbs.db
+.classpath
+.project
