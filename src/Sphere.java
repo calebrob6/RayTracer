@@ -2,9 +2,9 @@
 public class Sphere extends Primitive {
 	
 	private Vec3 c;
-	private int r;
+	private double r;
 	
-	public Sphere(Vec3 center, int radius){
+	public Sphere(Vec3 center, double radius){
 		this.c = center;
 		this.r = radius;
 	}

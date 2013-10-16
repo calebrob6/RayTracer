@@ -6,7 +6,7 @@ public class Plane extends Primitive {
 	
 	public Plane(Vec3 point, Vec3 normal){
 		this.p = point;
-		this.n = normal;
+		this.n = normal.norm();
 	}
 	
 	
@@ -19,7 +19,7 @@ public class Plane extends Primitive {
 		Vec3 t = e.minus(this.p);
 		double a = d.dot(this.n);
 		double b = t.dot(this.n);
-		solutions[0] = -b/a;
+		solutions[0] = (-b)/a;
 		return solutions;
 	}
 

@@ -59,16 +59,10 @@ public class Vec3 {
 	
 	public int getColor(){
 		int a=255;
-		int r = (int) Math.max(vec[0], 255);
-		int g = (int) Math.max(vec[1], 255);
-		int b = (int) Math.max(vec[2], 255);
+		int r = (int) Math.min(vec[0], 255);
+		int g = (int) Math.min(vec[1], 255);
+		int b = (int) Math.min(vec[2], 255);
 		return (a << 24) | (r << 16) | (g << 8) | b;
-	}
-	
-	public static void main(String[] args) {
-		Vec3 test1 = new Vec3(1,2,3);
-		Vec3 test2 = new Vec3(5,5,5);
-		System.out.println(test1.dot(test2));
 	}
 	
 }

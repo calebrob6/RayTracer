@@ -66,17 +66,19 @@ public class RayTracer {
 		blueMat.dC = new Vec3(100, 100, 200);
 		blueMat.sI = 0.2;
 		blueMat.sC = new Vec3(255, 255, 255);
-		blueMat.sExp = 30;
+		blueMat.sExp = 3000;
 		blueMat.reflection = 0;
 		
 		PointLight l = new PointLight(new Vec3(5,5,5));
-		Sphere s = new Sphere(new Vec3(0,0,0), 3);
+		Sphere s = new Sphere(new Vec3(0,0,2), 1);
+		Sphere s2 = new Sphere(new Vec3(0,0,3), .5);
 		Plane p = new Plane(new Vec3(0,-1,0),new Vec3(0,1,0));
 		p.material = groundMat;
 		s.material = blueMat;
 		
 		
 		scene.addObject(s);
+		//scene.addObject(s2);
 		scene.addObject(p);
 		scene.addLight(l);
 		
@@ -84,6 +86,8 @@ public class RayTracer {
 			for(int x=0;x<WIDTH;x++){
 				Ray r = cam.getRay(x,y);
 			    setPixelColor(x,y,scene.intersect(r,1));
+				//setPixelColor(x,y,new Vec3(0,x,y));
+
 			}
 		}
 		

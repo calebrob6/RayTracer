@@ -10,8 +10,8 @@ public class Camera {
 	public Camera() {
 		this.e = new Vec3(0, 5, 10);
 		this.distance = 2;
-		this.top = 2;
-		this.right = 2;
+		this.top = 4;
+		this.right = 4;
 		this.bottom = -this.top;
 		this.left = -this.right;
 		this.w = new Vec3(0, 0, -1);

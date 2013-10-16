@@ -4,7 +4,7 @@ public class Scene {
 
 	private final Vec3 defaultColor = new Vec3(0, 0, 0);
 	private final double epsilon = 0.001;
-	private final int maxDepth = 5;
+	private final int maxDepth = 2;
 
 	private ArrayList<Primitive> objects = new ArrayList<Primitive>();
 	private ArrayList<Light> lights = new ArrayList<Light>();
