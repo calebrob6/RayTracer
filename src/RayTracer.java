@@ -38,7 +38,11 @@ public class RayTracer {
 		Scene scene = new Scene();
 		Camera cam = new Camera();
 		
+		Sphere s = new Sphere(new Vec3(0,0,0), 3);
+		scene.addObject(s);
 		
+		Plane p = new Plane(new Vec3(0,-1,0),new Vec3(0,1,0));
+		scene.addObject(p);
 		
 		for(int y=0;y<HEIGHT;y++){
 			for(int x=0;x<WIDTH;x++){

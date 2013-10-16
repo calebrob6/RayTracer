@@ -31,7 +31,7 @@ public class Scene {
 				for(int i=0;i<solutions.length;i++){
 					if(solutions[i]<minT && solutions[i]>0){
 						Vec3 intersectionPoint = r.e.add(r.d.scalarMultiply(solutions[i]));
-						
+						color = new Color(120,60,60);
 					}
 				}
 			}

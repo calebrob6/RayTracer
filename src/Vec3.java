@@ -51,6 +51,12 @@ public class Vec3 {
 		return this.scalarMultiply((1.0d/Math.sqrt(this.dot(this))));
 	}
 	
+	public Vec3 cross(Vec3 b){
+		return new Vec3(this.vec[1]*b.vec[2]-this.vec[2]*b.vec[1],
+				this.vec[2]*b.vec[0]-this.vec[0]*b.vec[2],
+				this.vec[0]*b.vec[1]-this.vec[1]*b.vec[0]);
+	}
+	
 	public static void main(String[] args) {
 		Vec3 test1 = new Vec3(1,2,3);
 		Vec3 test2 = new Vec3(5,5,5);
