@@ -38,16 +38,52 @@ public class RayTracer {
 		Scene scene = new Scene();
 		Camera cam = new Camera();
 		
-		Sphere s = new Sphere(new Vec3(0,0,0), 3);
-		scene.addObject(s);
 		
+		Material groundMat = new Material();
+		groundMat.aI = 0.2;
+		groundMat.aC = new Vec3(128, 128, 128);
+		groundMat.dI = 1;
+		groundMat.dC = new Vec3(200, 200, 200);
+		groundMat.sI = 0.4;
+		groundMat.sC = new Vec3(255, 255, 255);
+		groundMat.sExp = 10;
+		groundMat.reflection = 0.2;
+
+		Material greenMat = new Material();
+		greenMat.aI = 0.4;
+		greenMat.aC = new Vec3(100, 100, 100);
+		greenMat.dI = 1;
+		greenMat.dC = new Vec3(100, 200, 100);
+		greenMat.sI = 0.5;
+		greenMat.sC = new Vec3(0, 255, 0);
+		greenMat.sExp = 20;
+		greenMat.reflection = 0.2;
+
+		Material blueMat = new Material();
+		blueMat.aI = 0.4;
+		blueMat.aC = new Vec3(100, 100, 100);
+		blueMat.dI = 1;
+		blueMat.dC = new Vec3(100, 100, 200);
+		blueMat.sI = 0.2;
+		blueMat.sC = new Vec3(255, 255, 255);
+		blueMat.sExp = 30;
+		blueMat.reflection = 0;
+		
+		PointLight l = new PointLight(new Vec3(5,5,5));
+		Sphere s = new Sphere(new Vec3(0,0,0), 3);
 		Plane p = new Plane(new Vec3(0,-1,0),new Vec3(0,1,0));
+		p.material = groundMat;
+		s.material = blueMat;
+		
+		
+		scene.addObject(s);
 		scene.addObject(p);
+		scene.addLight(l);
 		
 		for(int y=0;y<HEIGHT;y++){
 			for(int x=0;x<WIDTH;x++){
 				Ray r = cam.getRay(x,y);
-			    setPixelColor(x,y,scene.intersect(r));
+			    setPixelColor(x,y,scene.intersect(r,1));
 			}
 		}
 		
@@ -64,8 +100,8 @@ public class RayTracer {
 	}
 	
 	
-	private void setPixelColor(int x,int y, Color c){
-		pixels[x+y*WIDTH] = c.getColorInt();
+	private void setPixelColor(int x,int y, Vec3 c){
+		pixels[x+y*WIDTH] = c.getColor();
 	}
 
 }

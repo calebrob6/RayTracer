@@ -57,9 +57,12 @@ public class Vec3 {
 				this.vec[0]*b.vec[1]-this.vec[1]*b.vec[0]);
 	}
 	
-	public Color getColor(){
-		//TODO fix this
-		return null;
+	public int getColor(){
+		int a=255;
+		int r = (int) Math.max(vec[0], 255);
+		int g = (int) Math.max(vec[1], 255);
+		int b = (int) Math.max(vec[2], 255);
+		return (a << 24) | (r << 16) | (g << 8) | b;
 	}
 	
 	public static void main(String[] args) {
